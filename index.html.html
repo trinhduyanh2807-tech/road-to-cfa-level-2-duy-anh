@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CFA Level 2 – Lộ trình của Duy Anh</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Source+Serif+4:wght@600;700&display=swap">
+<style>
+:root{--bg:#eef2ee;--card:#fff;--ink:#12372a;--mut:#5b6f66;--line:#cfd9d2;--acc:#b7791f;--ok:#2f7d55;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c17;--card:#16271f;--ink:#e6efe9;--mut:#93a89d;--line:#284035;--acc:#e0a94a;--ok:#5fbf8b}}
+:root[data-theme="dark"]{--bg:#0f1c17;--card:#16271f;--ink:#e6efe9;--mut:#93a89d;--line:#284035;--acc:#e0a94a;--ok:#5fbf8b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "Be Vietnam Pro",system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:20px 16px 56px}
+h1,h2,.big{font-family:"Source Serif 4",Georgia,serif;margin:0}
+h2{font-size:1.4rem;margin:40px 0 12px}
+.hero{padding:28px 0 8px}
+.hero p{margin:0;color:var(--mut)}
+.big{font-size:clamp(4.5rem,22vw,8rem);line-height:1;color:var(--acc);font-weight:700}
+.big small{font-size:1.1rem;color:var(--mut);font-family:"Be Vietnam Pro",sans-serif;font-weight:500;margin-left:8px}
+.hero h1{font-size:1.5rem;margin-bottom:6px}
+.stats{display:flex;gap:24px;flex-wrap:wrap;margin-top:10px;color:var(--mut);font-size:.95rem}
+.stats b{color:var(--ink)}
+.bar{height:10px;background:var(--line);border-radius:5px;overflow:hidden;margin:6px 0}
+.bar i{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
+.topic{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+.topic summary{cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:12px;list-style:none}
+.topic summary::-webkit-details-marker{display:none}
+.topic summary:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.tn{flex:1;font-weight:600}
+.w{color:var(--mut);font-size:.85rem;white-space:nowrap}
+.pct{font-weight:600;min-width:42px;text-align:right}
+.topic ul{list-style:none;margin:0;padding:0 16px 14px}
+.topic li{padding:6px 0;border-top:1px solid var(--line)}
+.topic label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.topic input{margin-top:6px;accent-color:var(--ok);width:18px;height:18px}
+.phases{display:grid;gap:10px}
+.ph{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--acc);border-radius:10px;padding:12px 16px}
+.ph b{display:block}.ph span{color:var(--mut);font-size:.9rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;min-height:150px;padding:22px;width:100%;text-align:left;color:var(--ink);font:inherit;cursor:pointer}
+.card .q{font-family:"Source Serif 4",Georgia,serif;font-size:1.2rem;font-weight:600}
+.card .a{margin-top:6px;color:var(--ok);font-weight:500;overflow-wrap:anywhere}
+.card .hint{color:var(--mut);font-size:.85rem;margin-top:10px}
+.row{display:flex;gap:10px;margin-top:10px;align-items:center}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:9px 16px;font:inherit;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.grow{flex:1;color:var(--mut);font-size:.9rem}
+footer{margin-top:40px;color:var(--mut);font-size:.85rem}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+  <p>Duy Anh, còn</p>
+  <div class="big"><span id="days">–</span><small>ngày</small></div>
+  <h1>đến kỳ thi CFA Level 2, tháng 5/2027</h1>
+  <p>Mốc đếm ngược tính đến ngày 1/5/2027. Hãy đổi thành ngày thi chính thức của bạn khi CFA Institute công bố.</p>
+  <div class="stats"><span><b id="weeks">–</b> tuần còn lại</span><span>Tiến độ tổng: <b id="total">0%</b></span></div>
+  <div class="bar" role="progressbar" aria-label="Tiến độ tổng" aria-valuemin="0" aria-valuemax="100"><i id="tbar"></i></div>
+</section>
+
+<h2>Tiến độ theo môn</h2>
+<p style="color:var(--mut);margin-top:0">Duy Anh tick từng phần khi đã học xong. Tiến độ được lưu trên trình duyệt này.</p>
+<div id="topics"></div>
+
+<h2>Lộ trình gợi ý</h2>
+<div class="phases">
+  <div class="ph"><b>Giai đoạn 1: Học nội dung (10/2026 – 12/2026)</b><span>Đi hết các môn nặng điểm trước: FSA, Equity, Fixed Income, Corporate Issuers, Portfolio Management. Làm câu hỏi cuối mỗi chương.</span></div>
+  <div class="ph"><b>Giai đoạn 2: Hoàn tất bài giảng (1/2027 – 2/2027)</b><span>Học nốt Ethics, Quant, Economics, Derivatives, Alternatives. Bắt đầu ôn lại bằng flashcard công thức.</span></div>
+  <div class="ph"><b>Giai đoạn 3: Luyện đề (3/2027 – 4/2027)</b><span>Làm question bank theo mục thi, sau đó làm mock exam trọn vẹn. Ghi lại lỗi sai và ôn theo lỗi.</span></div>
+  <div class="ph"><b>Giai đoạn 4: Nước rút (2 tuần cuối)</b><span>Chỉ ôn công thức, Ethics và các mục hay sai. Ngủ đủ và giữ nhịp học đều.</span></div>
+</div>
+
+<h2>Flashcard công thức</h2>
+<button class="card" id="fc" aria-live="polite"></button>
+<div class="row">
+  <button class="btn alt" id="prev">Thẻ trước</button>
+  <button class="btn" id="next">Thẻ sau</button>
+  <span class="grow" id="cnt"></span>
+</div>
+
+<footer>Trang học do Claude tạo cho Duy Anh. Trọng số môn theo khung CFA Level 2; hãy đối chiếu với curriculum chính thức của năm thi.</footer>
+</main>
+<script>
+var TOPICS=[
+["Ethics & Professional Standards","10–15%",["Code of Ethics và Standards I–VII","GIPS","Áp dụng đạo đức vào tình huống"]],
+["Quantitative Methods","5–10%",["Hồi quy bội","Sai sót mô hình (misspecification)","Chuỗi thời gian","Machine learning và big data"]],
+["Economics","5–10%",["Tỷ giá hối đoái","Tăng trưởng kinh tế","Kinh tế học của quy định"]],
+["Financial Statement Analysis","10–15%",["Đầu tư liên công ty","Phúc lợi nhân viên và lương hưu","Hoạt động đa quốc gia","Chất lượng lợi nhuận"]],
+["Corporate Issuers","10–15%",["Cổ tức và mua lại cổ phiếu","Chi phí vốn","Cấu trúc vốn","M&A","Quản trị công ty"]],
+["Equity Valuation","10–15%",["Mô hình chiết khấu cổ tức","FCFF / FCFE","Định giá theo thị trường (P/E, P/B…)","Residual income","Định giá công ty tư nhân"]],
+["Fixed Income","10–15%",["Cấu trúc kỳ hạn lãi suất","Phân tích tín dụng","Trái phiếu có quyền chọn","Credit default swaps","MBS"]],
+["Derivatives","5–10%",["Định giá forward và futures","Định giá quyền chọn (binomial, BSM)","Swaps"]],
+["Alternative Investments","5–10%",["Bất động sản","Private equity","Hedge fund","Hàng hóa và hạ tầng"]],
+["Portfolio Management","10–15%",["Mô hình nhân tố","Quản lý danh mục chủ động","Xây dựng danh mục","Quản trị rủi ro"]]
+];
+var CARDS=[
+["Adjusted R²","1 − [(n−1)/(n−k−1)] × (1 − R²)"],
+["F-statistic (hồi quy bội)","F = (RSS/k) / (SSE/(n−k−1))"],
+["Put-call parity","c + X/(1+r)^T = p + S₀"],
+["Residual income","RIₜ = Eₜ − r × Bₜ₋₁"],
+["FCFE từ FCFF","FCFE = FCFF − Interest × (1 − t) + Net borrowing"],
+["Duration xấp xỉ (effective)","(PV₋ − PV₊) / (2 × PV₀ × Δcurve)"],
+["Covered interest rate parity","F/S = (1 + r_giá)/(1 + r_cơ sở)"],
+["Justified forward P/E","(D₁/E₁) / (r − g)"]
+];
+var KEY="cfa2-duyanh-v1",done={};
+try{done=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}}
+var box=document.getElementById("topics");
+TOPICS.forEach(function(t,i){
+  var d=document.createElement("details");d.className="topic";
+  var s=document.createElement("summary");
+  s.innerHTML='<span class="tn"></span><span class="w"></span><span class="pct" id="p'+i+'"></span>';
+  s.querySelector(".tn").textContent=t[0];s.querySelector(".w").textContent=t[1];
+  d.appendChild(s);
+  var ul=document.createElement("ul");
+  t[2].forEach(function(n,j){
+    var k=i+"-"+j,li=document.createElement("li"),lb=document.createElement("label"),cb=document.createElement("input");
+    cb.type="checkbox";cb.checked=!!done[k];
+    cb.onchange=function(){if(cb.checked)done[k]=1;else delete done[k];save();update()};
+    lb.appendChild(cb);lb.appendChild(document.createTextNode(n));li.appendChild(lb);ul.appendChild(li)});
+  d.appendChild(ul);box.appendChild(d)});
+function update(){
+  var all=0,ok=0;
+  TOPICS.forEach(function(t,i){var c=0;t[2].forEach(function(_,j){if(done[i+"-"+j])c++});
+    all+=t[2].length;ok+=c;document.getElementById("p"+i).textContent=Math.round(c/t[2].length*100)+"%"});
+  var p=Math.round(ok/all*100);
+  document.getElementById("total").textContent=p+"%";
+  document.getElementById("tbar").style.width=p+"%";
+  document.querySelector(".bar").setAttribute("aria-valuenow",p)}
+var left=Math.max(0,Math.ceil((new Date(2027,4,1)-new Date())/864e5));
+document.getElementById("days").textContent=left;
+document.getElementById("weeks").textContent=Math.ceil(left/7);
+var ci=0,show=false,fc=document.getElementById("fc");
+function draw(){var c=CARDS[ci];fc.innerHTML='<div class="q"></div><div class="a"></div><div class="hint"></div>';
+  fc.querySelector(".q").textContent=c[0];
+  fc.querySelector(".a").textContent=show?c[1]:"";
+  fc.querySelector(".hint").textContent=show?"":"Chạm để xem công thức";
+  document.getElementById("cnt").textContent=(ci+1)+" / "+CARDS.length}
+fc.onclick=function(){show=!show;draw()};
+document.getElementById("next").onclick=function(){ci=(ci+1)%CARDS.length;show=false;draw()};
+document.getElementById("prev").onclick=function(){ci=(ci+CARDS.length-1)%CARDS.length;show=false;draw()};
+update();draw();
+</script>
+</body>
+</html>
